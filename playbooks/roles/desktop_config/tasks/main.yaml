@@ -1,0 +1,6 @@
+---
+
+- name: set datetime indicator
+  command: "gsettings set com.canonical.indicator.datetime {{ item }}"
+  delegate_to: localhost
+  with_items: indicator_datetime_settings

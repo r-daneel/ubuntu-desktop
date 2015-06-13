@@ -1,0 +1,4 @@
+---
+
+- name: start indicator-multiload
+  shell: "nohup indicator-multiload &"

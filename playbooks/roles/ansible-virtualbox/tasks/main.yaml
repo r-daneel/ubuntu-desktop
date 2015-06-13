@@ -1,0 +1,20 @@
+---
+
+- name: add repository key
+  apt_key:
+    url: '{{ virtualbox_repo_key }}'
+    state: present
+  sudo: yes
+
+- name: add virtualbox repository
+  apt_repository:
+    repo: '{{ virtualbox_repo }}'
+    state: present
+    update_cache: yes
+  sudo: yes
+
+- name: install virtualbox
+  apt:
+    name: 'virtualbox'
+    state: latest
+  sudo: yes

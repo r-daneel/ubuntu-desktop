@@ -1,0 +1,23 @@
+---
+
+- name: add repository key
+  apt_key:
+    url: '{{ owncloud_client_repo_key }}'
+    state: present
+  sudo: yes
+
+- name: add repository
+  apt_repository:
+    repo: '{{ owncloud_client_repo }}'
+    state: present
+    update_cache: yes
+  sudo: yes
+
+- name: install owncloud-client
+  apt:
+    name: '{{ item }}'
+    state: latest
+  sudo: yes
+  with_items:
+    - owncloud-client
+    - owncloud-client-nautilus

@@ -1,0 +1,25 @@
+---
+
+- name: get temp file
+  command: mktemp /tmp/sublime_text_XXXXXX --suffix .deb
+  register: tmp_file
+
+- name: set sublime text download file
+  set_fact:
+    sublime_deb: '{{ tmp_file.stdout }}'
+
+- name: download sublime text
+  get_url:
+    url: '{{ sublime_text_deb_url }}'
+    dest: '{{ sublime_deb }}'
+
+- name: install sublime text editor
+  apt:
+    deb: '{{ sublime_deb }}'
+    state: present
+  sudo: yes
+
+- name: cleanup temp file
+  file:
+    path: '{{ sublime_deb }}'
+    state: absent

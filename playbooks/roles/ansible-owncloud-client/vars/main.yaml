@@ -1,0 +1,4 @@
+---
+
+owncloud_client_repo: 'deb http://download.opensuse.org/repositories/isv:/ownCloud:/desktop/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/ /'
+owncloud_client_repo_key: 'http://download.opensuse.org/repositories/isv:ownCloud:desktop/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/Release.key'

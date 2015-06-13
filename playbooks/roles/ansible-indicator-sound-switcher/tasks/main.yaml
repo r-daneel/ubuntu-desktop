@@ -1,0 +1,15 @@
+---
+
+- name: add indicator-sound-switcher repository
+  apt_repository:
+    repo: 'ppa:peterlevi/ppa'
+    state: present
+  sudo: yes
+
+- name: install indicator-sound-switcher
+  apt:
+    name: 'indicator-sound-switcher'
+    state: latest
+  sudo: yes
+  notify: start indicator-sound-switcher
+

@@ -1,0 +1,4 @@
+---
+
+- name: start indicator-sound-switcher
+  shell: "nohup ndicator-sound-switcher &"

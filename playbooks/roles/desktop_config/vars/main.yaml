@@ -1,0 +1,9 @@
+---
+
+indicator_datetime_settings:
+  - "show-clock true"
+  - "show-date true"
+  - "show-day true"
+  - "show-events true"
+  - "show-week-numbers true"
+  - "timezone-name 'America/Montreal'"

@@ -1,0 +1,4 @@
+---
+
+- name: start variety
+  shell: "nohup /opt/extras.ubuntu.com/variety/bin/variety &"

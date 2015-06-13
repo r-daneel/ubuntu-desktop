@@ -1,0 +1,15 @@
+---
+
+- name: add variety repository
+  apt_repository:
+    repo: 'ppa:peterlevi/ppa'
+    state: present
+  sudo: yes
+
+- name: install variety
+  apt:
+    name: 'variety'
+    state: latest
+  sudo: yes
+  notify: start variety
+

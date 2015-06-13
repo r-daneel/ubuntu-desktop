@@ -1,0 +1,15 @@
+---
+
+- name: add indicator-multiload repository
+  apt_repository:
+    repo: 'ppa:peterlevi/ppa'
+    state: present
+  sudo: yes
+
+- name: install indicator-multiload
+  apt:
+    name: 'indicator-multiload'
+    state: latest
+  sudo: yes
+  notify: start indicator-multiload
+
