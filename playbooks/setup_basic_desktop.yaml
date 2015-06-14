@@ -1,0 +1,46 @@
+#!/usr/bin/ansible-playbook -K
+---
+
+- name: basic ubuntu desktop
+  hosts: localhost
+  connection: local
+  gather_facts: true
+  vars:
+    packages_required:
+      - vim
+      - htop
+      - mc
+      - terminator
+      - gparted
+      - gsmartcontrol
+      - git
+      - ttf-mscorefonts-installer
+      - ubuntu-restricted-extras
+      - vlc
+      - keepassx
+      - unity-tweak-tool
+    packages_blacklist:
+      - whoopsie
+
+  tasks:
+  - name: install required packages
+    apt:
+      name: '{{ item }}'
+      state: 'present'
+    with_items: packages_required
+    sudo: yes
+
+  - name: remove blacklisted packages
+    apt:
+      name: '{{ item }}'
+      state: 'absent'
+      purge: yes
+    with_items: packages_blacklist
+    sudo: yes
+
+  roles:
+  - { role: desktop_config, tags: ['desktop', 'config' ] }
+  - { role: ansible-indicator-multiload, tags: ['desktop', 'indicator' ] }
+  - { role: ansible-indicator-sound-switcher, tags: ['desktop', 'indicator', 'sound' ] }
+  - { role: ansible-variety, tags: ['desktop', 'wallpaper' ] }
+  - { role: ansible-skype, tags: ['desktop', 'voip' ] }
