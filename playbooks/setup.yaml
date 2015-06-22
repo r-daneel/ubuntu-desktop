@@ -7,6 +7,7 @@
   gather_facts: true
   vars:
     packages_required:
+      - curl
       - vim
       - htop
       - mc
@@ -20,8 +21,23 @@
       - vlc
       - keepassx
       - unity-tweak-tool
+      - rdesktop
+      - gnome-rdp
+      - virtualenv
+      - virtualenvwrapper
+      - python-dev
+      - python-pip
+      - libxml2-dev
+      - libxslt1-dev
+      - libz-dev
+      - libffi-dev
+      - libssl-dev
+      - xclip
+      - qemu-utils
     packages_blacklist:
       - whoopsie
+      - command-not-found
+      - nano
 
   tasks:
   - name: install required packages
@@ -48,3 +64,5 @@
   - { role: ansible-skype, tags: ['desktop', 'voip' ] }
   - { role: ansible-virtualbox, tags: ['devops', 'virtualbox' ] }
   - { role: ansible-owncloud-client, tags: ['desktop', 'owncloud' ] }
+#  - { role: ansible-mysql-workbench, tags: ['desktop', 'database' ] }
+# http://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-6.3.4-1ubu1504-amd64.deb

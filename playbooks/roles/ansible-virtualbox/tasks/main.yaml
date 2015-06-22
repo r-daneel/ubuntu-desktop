@@ -18,3 +18,7 @@
     name: 'virtualbox'
     state: latest
   sudo: yes
+
+#TODO: 
+#- name: download extension pack
+#

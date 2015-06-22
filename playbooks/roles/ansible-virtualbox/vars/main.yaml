@@ -2,3 +2,4 @@
 
 virtualbox_repo: 'deb http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib'
 virtualbox_repo_key: 'https://www.virtualbox.org/download/oracle_vbox.asc'
+virtualbox_extension_pack_url: 'http://download.virtualbox.org/virtualbox/4.3.28/Oracle_VM_VirtualBox_Extension_Pack-4.3.28-100309.vbox-extpack'
