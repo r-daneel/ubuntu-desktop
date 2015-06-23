@@ -4,10 +4,10 @@
 - name: basic ubuntu desktop
   hosts: localhost
   connection: local
-  gather_facts: true
+  gather_facts: True
+  force_handlers: True
   vars:
     packages_required:
-      - vim
       - htop
       - mc
       - terminator
@@ -40,7 +40,8 @@
 
   roles:
   - { role: desktop_config, tags: ['desktop', 'config' ] }
+  - { role: ansible-vim, tags: [ 'editor' ] }
   - { role: ansible-indicator-multiload, tags: ['desktop', 'indicator' ] }
-  - { role: ansible-indicator-sound-switcher, tags: ['desktop', 'indicator', 'sound' ] }
+  - { role: ansible-indicator-sound-switcher, tags: ['desktop', 'indicator' ] }
   - { role: ansible-variety, tags: ['desktop', 'wallpaper' ] }
   - { role: ansible-skype, tags: ['desktop', 'voip' ] }

@@ -3,7 +3,7 @@
 - name: enable partner repository
   replace:
     dest: '/etc/apt/sources.list'
-    regexp: '^# \(deb .* partner\)$'
+    regexp: '^# (deb .* partner)$'
     replace: '\1'
     backup: yes
   notify: update apt cache

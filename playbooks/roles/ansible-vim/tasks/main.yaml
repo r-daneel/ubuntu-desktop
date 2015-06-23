@@ -1,0 +1,11 @@
+---
+
+- name: install vi improved
+  apt:
+    name: 'vim'
+    state: latest
+  sudo: yes
+
+- name: set vim as default text editor
+  shell: 'update-alternatives --set editor {{ default_editor }}'
+  sudo: yes
